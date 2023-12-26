@@ -51,12 +51,21 @@ and reporting changes in prediction quality.
 | test       |    0.889305 | 0.838206 |  0.858557 |   0.838206 |     0.9156   |
 
 ### Executing program
-I didn't create a main-file for executing the program because this doesn't really make sense but you can run all the steps using following instructions:
+I didn't create a main-file for executing the program because this doesn't really make sense, but you can run all the steps using the following instructions:
 
 
-0. **Installing requirements**: Install all the requirements from `requirements.txt` file.
-1. **Extracting data from IntelliJ Community project**: run `text_extraction.py` file with putting the path to the directory with all the Java files from IntelliJ Community project as an argument `directory`. Output will be saved to `data/functions_df.csv` file.
-2. **Preprocessing data for evaluation and fine-tuning**: run `process_data_io.py` which will save the processed data to `datasets/functions_df_inputs_outputs.parquet.gz` (compress it to load it faster to google colab) file. *Note*: here I create a new dataframe of size only 200k (while the number of functions is 406k), which is caused by the maximum size of a file I can load on GitHub.
+0. **Installing requirements and setting env-variables**: Install all the requirements from `requirements.txt` file. You also need to assign environment variables in the following way:
+```
+LANGUAGE_BUILDER_PATH='/Users/user/path_to_project/build/my-languages.so'
+JAVA_FILES_DIRECTORY='/Users/user/path_to_project/intellij-java-files'
+UNPROCESSED_FUNCTIONS_DATASET='/Users/user/path_to_project/datasets/functions_df.csv'
+MODEL_CHECKPOINT='Salesforce/codet5p-220m'
+MAIN_DATASET='/Users/user/path_to_project/datasets/functions_df_inputs_outputs.parquet.gz'
+MODEL_PATH='/Users/user/path_to_project/model/'
+NUM_SAMPLES=2000
+```
+1. **Extracting data from IntelliJ Community project**: run `text_extraction.py` file with putting the path to the directory with all the Java files from IntelliJ Community project as an argument `JAVA_FILES_DIRECTORY`. Output will be saved to `datasets/functions_df.csv` file.
+2. **Preprocessing data for evaluation and fine-tuning**: run `process_data_io.py` which will save the processed data to `datasets/functions_df_inputs_outputs.parquet.gz` (compress it to load it faster to google colab) file.
 3. **Evaluating predictions using pre-trained model**: run `evaluation_pretrained.py`.
-4. **Fine-tuning model on a given dataset**: open and run `fine_tune_notebook.ipynb` file in google colab. 
+4. **Fine-tuning model on a given dataset**: open and run `fine_tune_notebook.ipynb` file in google colab. You also can download it by this link to my [Google Drive](https://drive.google.com/drive/folders/1REJ0zI3oeYOZCpBWYlT2IsDO7Md-C-r-?usp=sharing). If you want to use it, put the model folder in the main directory of the project.
 5. **Evaluating predictions using fine-tuned model**: run `evaluation_finetuned.py`.
