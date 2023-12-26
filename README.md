@@ -45,15 +45,13 @@ and reporting changes in prediction quality.
 
 | type       |   precision |   recall |   f1score |   accuracy |   similarity |
 |:-----------|------------:|---------:|----------:|-----------:|-------------:|
-| multiline  |    0.494142 | 0.401843 |  0.427776 |   0.401843 |     0.635965 |
-| abstract   |    0.2229   | 0.137603 |  0.16287  |   0.137603 |     0.396059 |
-| one-liners |    0.573125 | 0.452067 |  0.485577 |   0.452067 |     0.660239 |
-| test       |    0.800313 | 0.712085 |  0.746161 |   0.712085 |     0.847186 |
+| multiline  |    0.75683  | 0.691369 |  0.713991 |   0.691369 |     0.838892 |
+| abstract   |    0.581858 | 0.532607 |  0.550536 |   0.532607 |     0.741023 |
+| one-liners |    0.765449 | 0.722451 |  0.737629 |   0.721966 |     0.848729 |
+| test       |    0.889305 | 0.838206 |  0.858557 |   0.838206 |     0.9156   |
 
 ### Executing program
 I didn't create a main-file for executing the program because this doesn't really make sense but you can run all the steps using following instructions:
-
-
 0. **Installing requirements**: Install all the requirements from `requirements.txt` file.
 1. **Extracting data from IntelliJ Community project**: run `text_extraction.py` file with putting the path to the directory with all the Java files from IntelliJ Community project as an argument `directory`. Output will be saved to `data/functions_df.csv` file.
 2. **Preprocessing data for evaluation and fine-tuning**: run `process_data_io.py` which will save the processed data to `datasets/functions_df_inputs_outputs.parquet.gz` (compress it to load it faster to google colab) file.
