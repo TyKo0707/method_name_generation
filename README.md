@@ -52,6 +52,8 @@ and reporting changes in prediction quality.
 
 ### Executing program
 I didn't create a main-file for executing the program because this doesn't really make sense but you can run all the steps using following instructions:
+
+
 0. **Installing requirements**: Install all the requirements from `requirements.txt` file.
 1. **Extracting data from IntelliJ Community project**: run `text_extraction.py` file with putting the path to the directory with all the Java files from IntelliJ Community project as an argument `directory`. Output will be saved to `data/functions_df.csv` file.
 2. **Preprocessing data for evaluation and fine-tuning**: run `process_data_io.py` which will save the processed data to `datasets/functions_df_inputs_outputs.parquet.gz` (compress it to load it faster to google colab) file.
