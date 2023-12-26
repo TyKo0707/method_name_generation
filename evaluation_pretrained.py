@@ -1,3 +1,4 @@
+import os
 import pandas as pd
 from utils.code_generation import extract_tokens_from_camel
 from utils.metrics import code_gen_f1_score_and_accuracy, code_gen_name_similarity
@@ -20,6 +21,10 @@ def evaluate_and_save_results(df: pd.DataFrame, model: T5ForConditionalGeneratio
     - num_samples (int, optional): The number of samples to evaluate. Default is 1000.
     """
     ftype = mean_values_file_name.split('_')[-1]
+    try:
+        os.mkdir(f'datasets/{ftype}')
+    except FileExistsError:
+        pass
     result = predict_and_evaluate(df[:num_samples], model, tokenizer, f'datasets/{ftype}/{mean_values_file_name}.csv')
     result.to_csv(f'datasets/{ftype}/{result_file_name}.csv', index=True)
     mean_values = result[['precision', 'recall', 'f1_score', 'accuracy', 'similarity']].mean(axis=0)
