@@ -96,3 +96,9 @@ demonstrates a systematic effort to enhance the model's capability in predicting
 A clear example of the result can be shown using these two plots:
 ![1](https://github.com/TyKo0707/method_name_generation/assets/65500151/dc28c316-9422-47d4-8bff-143323be3897)
 ![2](https://github.com/TyKo0707/method_name_generation/assets/65500151/4d06ad53-07d9-43af-821f-b0de813ffde5)
+
+## Other ideas and further work
+1. We need to consider other approaches for this task that use neural networks and attention mechanisms ([Structured neural summarization](https://arxiv.org/pdf/1811.01824.pdf)) or delve into code structure with creating some new substructures of it ([code2seq](https://arxiv.org/pdf/1808.01400.pdf)), approaches based on generated code keywords ([Keywords Guided Method Name Generation](https://arxiv.org/pdf/2103.11118.pdf)), etc.
+2. Clearly, we can improve our model by obtaining more data and training the model on it.
+3. We can try to combine it with XAI (make the prediction generation explainable) and try to perform knowledge distillation.
+4. ...
