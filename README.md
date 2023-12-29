@@ -96,6 +96,3 @@ demonstrates a systematic effort to enhance the model's capability in predicting
 A clear example of the result can be shown using these two plots:
 ![1](https://github.com/TyKo0707/method_name_generation/assets/65500151/dc28c316-9422-47d4-8bff-143323be3897)
 ![2](https://github.com/TyKo0707/method_name_generation/assets/65500151/4d06ad53-07d9-43af-821f-b0de813ffde5)
-
-
-## Further work
